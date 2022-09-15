@@ -15,7 +15,13 @@ class MainActivity : AppCompatActivity() {
         val displayTextView = findViewById<TextView>(R.id.textDisplay)
 
         // Step 1: Populate array
-        val numberArray = IntArray(100)
+        val numberArray = IntArray(100,{ i -> i * 1+1 })
+        for (x in numberArray) {
+            for (i in 0..numberArray.size-1)
+            {
+                println(numberArray[i])
+            }
+        }
 
         spinner.adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, numberArray.asList())
 
@@ -28,7 +34,7 @@ class MainActivity : AppCompatActivity() {
                 position: Int,
                 id: Long
             ) {
-
+                //return numberArray[position]
             }
 
             override fun onNothingSelected(parent: AdapterView<*>?) {}
@@ -36,6 +42,7 @@ class MainActivity : AppCompatActivity() {
 
         // Step 3: Change TextView to saved text size
         changeButton.setOnClickListener {
+
 
         }
 
